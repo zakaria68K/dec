@@ -1,5 +1,6 @@
 package com.decathlon.users.dto;
 
+import com.decathlon.users.enumerations.UserDepartment;
 import com.decathlon.users.enumerations.UserRole;
 import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.Pattern;
@@ -26,4 +27,7 @@ public class EditUserDto {
 
     @Nullable
     private UserRole role;
+
+    @Nullable
+    private UserDepartment department;
 }

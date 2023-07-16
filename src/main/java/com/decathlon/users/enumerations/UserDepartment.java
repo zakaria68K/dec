@@ -1,6 +1,6 @@
 package com.decathlon.users.enumerations;
 
-public enum UserService {
+public enum UserDepartment {
     QUECHUA,
     KALENJI,
     DOMYOS,

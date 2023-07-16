@@ -7,7 +7,7 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import com.decathlon.users.enumerations.UserService;
+import com.decathlon.users.enumerations.UserDepartment;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -37,7 +37,7 @@ public class User {
         private String email;
 
         @Column(name = "service", nullable = false)
-        private UserService service;
+        private UserDepartment department;
 
         @Column(name = "role", nullable = false)
         private UserRole role;
@@ -48,7 +48,7 @@ public class User {
 
         @Column(name = "is_active", nullable = false)
 	private boolean isActive;
-        
+
         // Crypt password before saving
 	public void setPassword(String password) {
 		this.password = BCrypt.hashpw(password, BCrypt.gensalt());
