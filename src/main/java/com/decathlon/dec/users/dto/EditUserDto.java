@@ -1,7 +1,8 @@
-package com.decathlon.users.dto;
+package com.decathlon.dec.users.dto;
 
-import com.decathlon.users.enumerations.UserDepartment;
-import com.decathlon.users.enumerations.UserRole;
+import com.decathlon.dec.users.enumerations.UserDepartment;
+import com.decathlon.dec.users.enumerations.UserRole;
+
 import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;

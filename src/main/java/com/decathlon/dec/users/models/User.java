@@ -1,4 +1,4 @@
-package com.decathlon.users.models;
+package com.decathlon.dec.users.models;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -7,12 +7,13 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import com.decathlon.users.enumerations.UserDepartment;
+
+import com.decathlon.dec.users.enumerations.UserDepartment;
+import com.decathlon.dec.users.enumerations.UserRole;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import org.springframework.security.crypto.bcrypt.BCrypt;
 
-import com.decathlon.users.enumerations.UserRole;
 import lombok.NoArgsConstructor;
 
 @Data

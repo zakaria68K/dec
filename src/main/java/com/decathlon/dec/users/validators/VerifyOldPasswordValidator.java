@@ -1,9 +1,9 @@
-package com.decathlon.users.validators;
+package com.decathlon.dec.users.validators;
 
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 
-import com.decathlon.users.models.MyUserDetails;
+import com.decathlon.dec.users.models.MyUserDetails;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;

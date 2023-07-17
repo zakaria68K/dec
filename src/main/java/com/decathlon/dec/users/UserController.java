@@ -1,4 +1,4 @@
-package com.decathlon.users;
+package com.decathlon.dec.users;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -6,15 +6,15 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.decathlon.users.dto.CreateUserDto;
-import com.decathlon.users.dto.EditPasswordDto;
-import com.decathlon.users.dto.EditUserDto;
-import com.decathlon.users.dto.PaginatedResponse;
-import com.decathlon.users.enumerations.UserRole;
-import com.decathlon.users.models.MyUserDetails;
-import com.decathlon.users.models.User;
-import com.decathlon.users.services.UserService;
-import com.decathlon.utils.MessageResponse;
+import com.decathlon.dec.users.dto.CreateUserDto;
+import com.decathlon.dec.users.dto.EditPasswordDto;
+import com.decathlon.dec.users.dto.EditUserDto;
+import com.decathlon.dec.users.dto.PaginatedResponse;
+import com.decathlon.dec.users.enumerations.UserRole;
+import com.decathlon.dec.users.models.MyUserDetails;
+import com.decathlon.dec.users.models.User;
+import com.decathlon.dec.users.services.UserService;
+import com.decathlon.dec.utils.MessageResponse;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -147,7 +147,7 @@ public class UserController {
 	}
 
 	@DeleteMapping("/users/{id}")
-	@PreAuthorize("hasAuthority('MODERATOR')")
+	@PreAuthorize("hasAuthority('DIRECTEUR')")
 	MessageResponse deleteUser(@PathVariable("id") Long id){
 		userService.deleteUser(id);
 		return new MessageResponse("User deleted successfully");

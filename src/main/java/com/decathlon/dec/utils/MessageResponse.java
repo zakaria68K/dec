@@ -1,4 +1,4 @@
-package com.decathlon.utils;
+package com.decathlon.dec.utils;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

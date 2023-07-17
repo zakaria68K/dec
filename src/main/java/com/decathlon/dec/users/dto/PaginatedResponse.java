@@ -1,4 +1,4 @@
-package com.decathlon.users.dto;
+package com.decathlon.dec.users.dto;
 
 import java.util.List;
 

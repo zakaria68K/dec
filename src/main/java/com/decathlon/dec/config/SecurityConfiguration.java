@@ -1,4 +1,4 @@
-package com.decathlon.config;
+package com.decathlon.dec.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,7 +16,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.security.web.session.HttpSessionEventPublisher;
 
-import com.decathlon.users.services.MyUserDetailsService;
+import com.decathlon.dec.users.services.MyUserDetailsService;
 
 @Configuration
 @EnableWebSecurity

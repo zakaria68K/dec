@@ -1,4 +1,4 @@
-package com.decathlon.users.validators;
+package com.decathlon.dec.users.validators;
 
 import org.springframework.beans.BeanWrapperImpl;
 

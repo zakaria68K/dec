@@ -1,4 +1,4 @@
-package com.decathlon.users.services;
+package com.decathlon.dec.users.services;
 
 import java.util.function.Supplier;
 
@@ -9,14 +9,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.decathlon.mappers.UserDtoMapper;
-import com.decathlon.users.UserRepository;
-import com.decathlon.users.dto.CreateUserDto;
-import com.decathlon.users.dto.EditPasswordDto;
-import com.decathlon.users.dto.EditUserDto;
-import com.decathlon.users.enumerations.UserRole;
-import com.decathlon.users.models.MyUserDetails;
-import com.decathlon.users.models.User;
+import com.decathlon.dec.mappers.UserDtoMapper;
+import com.decathlon.dec.users.UserRepository;
+import com.decathlon.dec.users.dto.CreateUserDto;
+import com.decathlon.dec.users.dto.EditPasswordDto;
+import com.decathlon.dec.users.dto.EditUserDto;
+import com.decathlon.dec.users.enumerations.UserRole;
+import com.decathlon.dec.users.models.MyUserDetails;
+import com.decathlon.dec.users.models.User;
 
 
 public class UserService {

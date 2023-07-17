@@ -1,4 +1,4 @@
-package com.decathlon.users.validators;
+package com.decathlon.dec.users.validators;
 
 import jakarta.validation.Payload;
 import java.lang.annotation.ElementType;

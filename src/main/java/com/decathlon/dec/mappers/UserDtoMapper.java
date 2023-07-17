@@ -1,14 +1,15 @@
-package com.decathlon.mappers;
+package com.decathlon.dec.mappers;
 
-import com.decathlon.users.dto.CreateUserDto;
-import com.decathlon.users.dto.EditPasswordDto;
-import com.decathlon.users.dto.EditUserDto;
-import com.decathlon.users.models.User;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
+
+import com.decathlon.dec.users.dto.CreateUserDto;
+import com.decathlon.dec.users.dto.EditPasswordDto;
+import com.decathlon.dec.users.dto.EditUserDto;
+import com.decathlon.dec.users.models.User;
 
 
 @Mapper(componentModel = "spring")

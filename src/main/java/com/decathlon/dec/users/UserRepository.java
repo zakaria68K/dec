@@ -1,4 +1,4 @@
-package com.decathlon.users;
+package com.decathlon.dec.users;
 
 import java.util.Optional;
 
@@ -6,8 +6,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.decathlon.users.enumerations.UserRole;
-import com.decathlon.users.models.User;
+import com.decathlon.dec.users.enumerations.UserRole;
+import com.decathlon.dec.users.models.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
     

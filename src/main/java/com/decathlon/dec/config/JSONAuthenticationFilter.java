@@ -1,4 +1,4 @@
-package com.decathlon.config;
+package com.decathlon.dec.config;
 
 import java.io.BufferedReader;
 import java.io.IOException;

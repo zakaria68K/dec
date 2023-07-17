@@ -1,4 +1,4 @@
-package com.decathlon.users.models;
+package com.decathlon.dec.users.models;
 
 import java.util.Arrays;
 import java.util.Collection;

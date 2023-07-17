@@ -1,4 +1,4 @@
-package com.decathlon.users.enumerations;
+package com.decathlon.dec.users.enumerations;
 
 public enum UserRole {
     DIRECTEUR,

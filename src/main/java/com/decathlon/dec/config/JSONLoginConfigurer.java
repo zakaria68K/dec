@@ -1,4 +1,4 @@
-package com.decathlon.config;
+package com.decathlon.dec.config;
 
 import org.springframework.security.config.annotation.web.HttpSecurityBuilder;
 import org.springframework.security.config.annotation.web.configurers.AbstractAuthenticationFilterConfigurer;
