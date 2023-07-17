@@ -18,7 +18,6 @@ public interface UserDtoMapper {
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     @Mapping(target = "id", ignore = true)
-    @Mapping(target = "active", ignore = true)
     @Mapping(target = "department", ignore = true)
     @Mapping(target = "role", ignore = true)
     @Mapping(target = "active", ignore = true)
@@ -27,7 +26,7 @@ public interface UserDtoMapper {
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "password", ignore = true)
-    //@Mapping(target = "active", ignore = true)
+    @Mapping(target = "active", ignore = true)
     void updateUserFromDto(EditUserDto editUserDto, @MappingTarget User user);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)

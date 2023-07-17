@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.decathlon.dec.mappers.UserDtoMapper;
@@ -18,7 +19,11 @@ import com.decathlon.dec.users.enumerations.UserRole;
 import com.decathlon.dec.users.models.MyUserDetails;
 import com.decathlon.dec.users.models.User;
 
+import lombok.Data;
 
+
+@Data
+@Service
 public class UserService {
 
 
