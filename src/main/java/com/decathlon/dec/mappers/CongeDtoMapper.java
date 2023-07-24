@@ -7,6 +7,7 @@ import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 
 import com.decathlon.dec.conges.dto.CreateCongeDto;
+import com.decathlon.dec.conges.dto.UpdateCongeDto;
 import com.decathlon.dec.conges.models.Conge;
 
 @Mapper(componentModel = "spring")
@@ -22,7 +23,7 @@ public interface CongeDtoMapper {
     @Mapping(target = "id", ignore = true)
     @Mapping(target="user", ignore= true)
     @Mapping(target="status", ignore= true)
-    void updateCongeFromDto(CreateCongeDto createCongeDto, @MappingTarget Conge conge);
+    void updateCongeFromDto(UpdateCongeDto updateCongeDto, @MappingTarget Conge conge);
 
 
 }
