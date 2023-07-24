@@ -12,6 +12,7 @@ import com.decathlon.dec.users.enumerations.UserDepartment;
 import com.decathlon.dec.users.enumerations.UserRole;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import lombok.NoArgsConstructor;
@@ -49,6 +50,15 @@ public class User {
 
         @Column(name = "is_active", nullable = false)
 	private boolean isActive;
+
+        @Column(name= "total", nullable = false)
+        @JsonIgnore
+        private Double total;
+
+        @Scheduled(cron = "0 0 0 1 * ?") // Exécution chaque premier jour du mois à minuit
+        public void incrementerValeur() {
+        this.total += 1.5;
+        }   
 
         // Crypt password before saving
 	public void setPassword(String password) {

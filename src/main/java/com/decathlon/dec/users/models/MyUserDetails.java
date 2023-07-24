@@ -38,6 +38,9 @@ public class MyUserDetails implements UserDetails {
         return user.getEmail();
     }
 
+
+  
+
     public User getUser(){
         return user;
     }
@@ -63,8 +66,5 @@ public class MyUserDetails implements UserDetails {
     }
 
   
-
-
-    
 }
 
