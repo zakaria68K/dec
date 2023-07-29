@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -108,7 +109,7 @@ public class CongeController {
             return congeService.getCongeById(id);
         }
 
-        
+        @PatchMapping(value = "/{id}")
         public Conge editUserConge(Long id, UpdateCongeDto updateCongeDto, User user){
             Conge conge = congeRepository.findByIdAndUser(id,user).orElseThrow(() -> new IllegalArgumentException("Conge not found"));
             congeDtoMapper.updateCongeFromDto(updateCongeDto, conge);
@@ -116,6 +117,7 @@ public class CongeController {
             return conge;
         }
 
+        @DeleteMapping(value = "/{id}")
         public MessageResponse deleteUserConge(@AuthenticationPrincipal MyUserDetails userDetails, @PathVariable("id") Long id){
             congeService.deleteUserConge(userDetails.getUser(), id);
             return  new MessageResponse("Conge deleted successfully");

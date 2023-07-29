@@ -35,7 +35,7 @@ private static Supplier<ResponseStatusException> NOT_FOUND_HANDLER = () -> {
         conge.setUser(user);
         return congeRepository.save(conge);
     }
-
+  
     @Transactional
     public Page<Conge> getAllUserCongesPaginated(User user, Pageable pageable) {
         return congeRepository.findAllByUser(user, pageable);
