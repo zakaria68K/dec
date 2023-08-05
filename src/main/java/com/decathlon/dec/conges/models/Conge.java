@@ -33,7 +33,7 @@ public class Conge {
     private Long id;
 
     @ManyToOne
-    @Column(name = "user_id", nullable = false)
+   // @Column(name = "user_id", nullable = false)
     @JoinColumn(name = "user_id")
     @JsonIgnore
     @EqualsAndHashCode.Exclude

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.decathlon.dec.absences.dto.CreateAbsenceDto;
@@ -16,6 +17,7 @@ import com.decathlon.dec.users.models.User;
 
 import jakarta.validation.Valid;
 
+@Service
 public class AbsenceService {
 
     private static Supplier<ResponseStatusException> NOT_FOUND_HANDLER = () -> {

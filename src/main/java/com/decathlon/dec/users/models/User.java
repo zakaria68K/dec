@@ -38,21 +38,21 @@ public class User {
         @Column(name = "email", nullable = false)
         private String email;
 
-        @Column(name = "service", nullable = false)
+        @Column(name = "service")
         private UserDepartment department;
 
-        @Column(name = "role", nullable = false)
+        @Column(name = "role")
         private UserRole role;
 
         @Column(name = "password", nullable = false)
 	@JsonIgnore
 	private String password;
 
-        @Column(name = "is_active", nullable = false)
+        @Column(name = "is_active")
 	private boolean isActive;
 
-        @Column(name= "total", nullable = false)
-        @JsonIgnore
+        @Column(name= "total")
+        
         private Double total;
 
         @Scheduled(cron = "0 0 0 1 * ?") // Exécution chaque premier jour du mois à minuit

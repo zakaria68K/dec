@@ -1,5 +1,6 @@
 package com.decathlon.dec.users.dto;
 
+import com.decathlon.dec.users.enumerations.UserDepartment;
 import com.decathlon.dec.users.enumerations.UserRole;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -23,7 +24,7 @@ public class CreateUserDto {
     private String lastName;
 
     @NotBlank(message = "The email is required")
-    @Pattern(regexp = "[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@um5.ac.ma$", message = "The email is invalid")
+    @Pattern(regexp = "[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@decathlon.com$", message = "The email is invalid")
     private String email;
 
     @NotBlank(message = "The password is required")
@@ -36,5 +37,12 @@ public class CreateUserDto {
 
     @Nullable
     private UserRole role;
+
+    @Nullable
+    private Double total;
+
+    @Nullable
+    private UserDepartment department;
+
     
 }
