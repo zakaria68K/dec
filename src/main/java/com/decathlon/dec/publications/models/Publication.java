@@ -47,21 +47,11 @@ public class Publication {
 
     @Lob
     @Column(name = "image", nullable = true)
+    @JsonIgnore
     private byte[] image;
 
     @OneToMany(mappedBy = "publication", cascade = CascadeType.ALL)
     private List<Commentaire> comments = new ArrayList<>();
-    // @Lob
-    // @Column(name = "image2", nullable = true)
-    // private byte[] image2;
-
-    // @Lob
-    // @Column(name = "image3", nullable = true)
-    // private byte[] image3;
-
-    // @Lob    
-    // @Column(name = "video", nullable = true)
-    // private byte[] video;
 
     //date
     @Column(name = "date", nullable = false)
