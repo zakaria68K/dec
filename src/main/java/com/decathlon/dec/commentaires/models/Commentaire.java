@@ -1,4 +1,6 @@
 package com.decathlon.dec.commentaires.models;
+import org.hibernate.annotations.CreationTimestamp;
+
 import com.decathlon.dec.publications.models.Publication;
 import com.decathlon.dec.users.models.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -43,6 +45,7 @@ public class Commentaire {
     @Column(name = "contenu", nullable = false)
     private String contenu;
 
+    @CreationTimestamp
     @Column(name = "date", nullable = false)
     private String date;
 }

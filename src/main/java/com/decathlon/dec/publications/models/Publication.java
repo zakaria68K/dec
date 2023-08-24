@@ -3,6 +3,8 @@ package com.decathlon.dec.publications.models;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import com.decathlon.dec.commentaires.models.Commentaire;
 import com.decathlon.dec.users.models.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -54,6 +56,7 @@ public class Publication {
     private List<Commentaire> comments = new ArrayList<>();
 
     //date
+    @CreationTimestamp
     @Column(name = "date", nullable = false)
     private String date;
 
