@@ -83,6 +83,8 @@ public class UserService {
 		}
 		User user = userDtoMapper.createUserDtoToUser(createUserDto);
 		user.setActive(true);
+		user.setRole(UserRole.VENDEUR);
+		user.setTotal(100);
 		return userRepository.save(user);
 	}
 

@@ -1,6 +1,8 @@
 package com.decathlon.dec.publications.models;
 
+
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -58,6 +60,6 @@ public class Publication {
     //date
     @CreationTimestamp
     @Column(name = "date", nullable = false)
-    private String date;
+    private Date date;
 
 }

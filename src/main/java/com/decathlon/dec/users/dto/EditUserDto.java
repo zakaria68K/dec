@@ -23,7 +23,7 @@ public class EditUserDto {
     private String lastName;
 
     @Nullable
-    @Pattern(regexp = "[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@um5.ac.ma$", message = "The email is invalid")
+    @Pattern(regexp = "[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@decathlon.com$", message = "The email is invalid")
     private String email;
 
     @Nullable

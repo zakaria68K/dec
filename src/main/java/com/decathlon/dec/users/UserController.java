@@ -10,6 +10,7 @@ import com.decathlon.dec.users.dto.CreateUserDto;
 import com.decathlon.dec.users.dto.EditPasswordDto;
 import com.decathlon.dec.users.dto.EditUserDto;
 import com.decathlon.dec.users.dto.PaginatedResponse;
+import com.decathlon.dec.users.enumerations.UserDepartment;
 import com.decathlon.dec.users.enumerations.UserRole;
 import com.decathlon.dec.users.models.MyUserDetails;
 import com.decathlon.dec.users.models.User;
@@ -45,9 +46,10 @@ public class UserController {
     @PostMapping(value="/users")
     @ResponseStatus(HttpStatus.CREATED)
     User addUser(@Valid @RequestBody CreateUserDto createUserDto) {
-        	if(createUserDto.getRole()==null){
-			createUserDto.setRole(UserRole.VENDEUR);
-		}
+        //createUserDto.setRole(UserRole.VENDEUR);
+		//createUserDto.setDepartment(UserDepartment.QUECHUA);
+		//createUserDto.setTotal((double) 0);
+
 		return userService.addUser(createUserDto);
 	}
 

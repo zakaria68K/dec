@@ -39,7 +39,7 @@ public class CreateUserDto {
     private UserRole role;
 
     @Nullable
-    private Double total;
+    private long total;
 
     @Nullable
     private UserDepartment department;

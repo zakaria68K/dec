@@ -26,7 +26,7 @@ import lombok.EqualsAndHashCode;
 @NoArgsConstructor
 @Table(name = "conges")
 public class Conge {
-    private static final CongeStatus PENDING = null;
+   
     @Id
     @Column(name = "conge_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,7 +49,7 @@ public class Conge {
     private String reason;
 
     @Column(nullable = false)
-    private CongeStatus status = PENDING ;
+    private CongeStatus status = CongeStatus.PENDING;
 
    
 }

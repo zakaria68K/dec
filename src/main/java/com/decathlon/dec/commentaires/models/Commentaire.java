@@ -1,4 +1,8 @@
 package com.decathlon.dec.commentaires.models;
+
+
+import java.util.Date;
+
 import org.hibernate.annotations.CreationTimestamp;
 
 import com.decathlon.dec.publications.models.Publication;
@@ -47,5 +51,5 @@ public class Commentaire {
 
     @CreationTimestamp
     @Column(name = "date", nullable = false)
-    private String date;
+    private Date date;
 }

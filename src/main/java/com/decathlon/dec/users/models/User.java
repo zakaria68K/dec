@@ -53,7 +53,7 @@ public class User {
 
         @Column(name= "total")
         
-        private Double total;
+        private long total;
 
         @Scheduled(cron = "0 0 0 1 * ?") // Exécution chaque premier jour du mois à minuit
         public void incrementerValeur() {

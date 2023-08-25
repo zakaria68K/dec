@@ -47,10 +47,10 @@ public class CongeController {
         @Valid @RequestBody CreateCongeDto createCongeDto){
             if(createCongeDto.getStartDate().after(createCongeDto.getEndDate())){
                 throw new IllegalArgumentException("La date de début doit être avant la date de fin");
-            } //check if the total is bigger than the days between the end and the start date.
-            else if(createCongeDto.getEndDate().getTime() - createCongeDto.getStartDate().getTime() > userDetails.getUser().getTotal() * 86400000){
-                throw new IllegalArgumentException("Le nombre de jours demandés est supérieur au nombre de jours entre la date de début et la date de fin");
-            }
+            } //check if the total is bigger than the days between the end and the start date. 86,400,000
+            else if(createCongeDto.getEndDate().getTime() - createCongeDto.getStartDate().getTime() > userDetails.getUser().getTotal()* 86400000){
+                throw new IllegalArgumentException("Le nombre de jours demandés est supérieur au nombre total de jours ");
+            }//
             else{
                 return congeService.createConge(userDetails.getUser(), createCongeDto);
             }
@@ -110,7 +110,7 @@ public class CongeController {
         }
 
         @PatchMapping(value = "/{id}")
-        public Conge editUserConge(Long id, UpdateCongeDto updateCongeDto, User user){
+        public Conge editUserConge(@PathVariable("id") Long id, UpdateCongeDto updateCongeDto, User user){
             Conge conge = congeRepository.findByIdAndUser(id,user).orElseThrow(() -> new IllegalArgumentException("Conge not found"));
             congeDtoMapper.updateCongeFromDto(updateCongeDto, conge);
             congeRepository.save(conge);
