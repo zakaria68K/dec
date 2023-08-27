@@ -24,19 +24,20 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 @RestController
 @RequestMapping("/commentaires")
 public class CommentaireController {
-    //the CRUD code of the controller is here
+    
     
     @Autowired
     CommentaireService commentaireService;
 
-    @PostMapping(path = "")
+    @PostMapping(path = "/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public Commentaire createNewCommentaire(
         @AuthenticationPrincipal MyUserDetails userDetails,
-        @Valid @RequestBody CreateCommentaireDto createCommentaireDto
+        @Valid @RequestBody CreateCommentaireDto createCommentaireDto,
+        @PathVariable("id") Long id
     )
     {
-        return commentaireService.createNewCommentaireForUser(userDetails.getUser(), createCommentaireDto);
+        return commentaireService.createNewCommentaireForUser(userDetails.getUser(), createCommentaireDto, id);
     }
 
     @GetMapping(path = "/{id}")

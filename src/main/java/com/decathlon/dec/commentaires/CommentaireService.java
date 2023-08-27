@@ -10,6 +10,8 @@ import com.decathlon.dec.commentaires.dto.CreateCommentaireDto;
 import com.decathlon.dec.commentaires.dto.EditCommentaireDto;
 import com.decathlon.dec.commentaires.models.Commentaire;
 import com.decathlon.dec.mappers.CommentaireMapper;
+import com.decathlon.dec.publications.PublicationRepository;
+import com.decathlon.dec.publications.models.Publication;
 import com.decathlon.dec.users.models.User;
 
 import jakarta.validation.Valid;
@@ -21,9 +23,16 @@ public class CommentaireService {
     CommentaireRepository commentaireRepository;
     @Autowired
     CommentaireMapper commentaireMapper;
-    public Commentaire createNewCommentaireForUser(User user, CreateCommentaireDto createCommentaireDto) {
+
+    @Autowired
+    PublicationRepository publicationRepository;
+    
+    public Commentaire createNewCommentaireForUser(User user, CreateCommentaireDto createCommentaireDto, Long id) {
         Commentaire commentaire = commentaireMapper.createDtoToCommentaire(createCommentaireDto);
         commentaire.setUser(user);
+        //get the publication by id
+        Publication publication = publicationRepository.findById(id).orElseThrow();
+        commentaire.setPublication(publication);
         return commentaireRepository.save(commentaire);
         
     }
