@@ -49,9 +49,9 @@ public class Absence {
     private String reason;
 
     @Column(nullable = false)
-    private AbsenceStatus status = PENDING ;
+    private AbsenceStatus status = AbsenceStatus.PENDING;
 
-    private static final AbsenceStatus PENDING = null;
+   
 
 
 }

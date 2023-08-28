@@ -109,10 +109,7 @@ public class AbsenceController {
         
         @PatchMapping("/{id}")
         Absence editUserAbsence(@PathVariable("id") Long id, @Valid @RequestBody UpdateAbsenceDto updateAbsenceDto, User user){
-            Absence absence = absenceRepository.findByIdAndUser(id,user).orElseThrow(() -> new IllegalArgumentException("Absence not found"));
-            absenceDtoMapper.updateAbsenceFromDto(updateAbsenceDto, absence);
-            absenceRepository.save(absence);
-            return absence;
+           return absenceService.editUserAbsence(id, updateAbsenceDto, user);
         }
 
         @PatchMapping("/{id}/cancel")
@@ -137,26 +134,3 @@ public class AbsenceController {
 
 
     }
-    /*
-   
-
-    
-
-        
-
-        public MessageResponse deleteUserConge(@AuthenticationPrincipal MyUserDetails userDetails, @PathVariable("id") Long id){
-            congeService.deleteUserConge(userDetails.getUser(), id);
-            return  new MessageResponse("Conge deleted successfully");
-       
-        }
-
-       
-        }
-
-
-
-
-    
-}
- */
-

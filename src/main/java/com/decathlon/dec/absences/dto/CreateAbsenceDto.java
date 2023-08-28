@@ -3,20 +3,25 @@ package com.decathlon.dec.absences.dto;
 import java.util.Date;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@SuperBuilder
 public class CreateAbsenceDto {
     
-    @NotBlank(message = "La date de début est obligatoire")
+    @NotNull(message = "La date de début est obligatoire")
     private Date startDate;
-    @NotBlank(message = "La date de fin est obligatoire")
+    @NotNull(message = "La date de fin est obligatoire")
     private Date endDate;
     @NotBlank(message = "Le motif est obligatoire")
     private String reason;
-    public Date getStartDate() {
-        return startDate;
-    }
-    public Date getEndDate() {
-        return endDate;
-    }
-  
+
+
 }

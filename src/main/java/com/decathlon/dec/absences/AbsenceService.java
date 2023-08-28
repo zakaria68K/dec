@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.decathlon.dec.absences.dto.CreateAbsenceDto;
+import com.decathlon.dec.absences.dto.UpdateAbsenceDto;
 import com.decathlon.dec.absences.enumerations.AbsenceStatus;
 import com.decathlon.dec.absences.models.Absence;
 import com.decathlon.dec.mappers.AbsenceDtoMapper;
@@ -67,6 +68,13 @@ public class AbsenceService {
 
     public void deleteUserAbsence(User user, Long id) {
         AbsenceRepository.delete(AbsenceRepository.findByIdAndUser(id, user).orElseThrow(NOT_FOUND_HANDLER));
+    }
+
+    public Absence editUserAbsence(Long id, @Valid UpdateAbsenceDto updateAbsenceDto, User user) {
+        Absence absence = AbsenceRepository.findByIdAndUser(id,user).orElseThrow(() -> new IllegalArgumentException("Absence not found"));
+        absenceDtoMapper.updateAbsenceFromDto(updateAbsenceDto, absence);
+        AbsenceRepository.save(absence);
+        return absence;
     }
 
     
