@@ -354,7 +354,5 @@ public class DocumentsControllerTest {
 						get(String.format("/documents/%d/file", doc.getId()))
 								.with(user(anotherTestUser)))
 				.andExpect(status().isNotFound());
-	}
-
-
+	} 
 }
