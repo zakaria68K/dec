@@ -11,32 +11,21 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.http.MediaType;
-import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.decathlon.dec.DecApplication;
 import com.decathlon.dec.conges.dto.CreateCongeDto;
 import com.decathlon.dec.conges.enumerations.CongeStatus;
 import com.decathlon.dec.conges.models.Conge;
-import com.decathlon.dec.documents.DocumentsRepository;
-import com.decathlon.dec.documents.dto.CreateDocumentDto;
-import com.decathlon.dec.documents.dto.EditDocumentDto;
-import com.decathlon.dec.documents.models.Document;
 import com.decathlon.dec.users.UserRepository;
 import com.decathlon.dec.users.dto.PaginatedResponse;
 import com.decathlon.dec.users.enumerations.UserRole;
 import com.decathlon.dec.users.models.MyUserDetails;
 import com.decathlon.dec.users.models.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jayway.jsonpath.JsonPath;
-
-import static org.hamcrest.MatcherAssert.*;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -45,8 +34,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
 
 
