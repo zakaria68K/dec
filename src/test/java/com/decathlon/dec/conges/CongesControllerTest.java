@@ -150,7 +150,7 @@ assertTrue(paginatedResponse.isLast());
        
     }
     @Test //get conge by id
-    public void testGetAlertById_shouldReturnConge()  throws Exception {
+    public void testGetCongeById_shouldReturnConge()  throws Exception {
         Conge conge = new Conge();
         String dateString = "2021-05-05";
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
