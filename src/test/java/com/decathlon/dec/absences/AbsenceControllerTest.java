@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.decathlon.dec.DecApplication;
 import com.decathlon.dec.absences.dto.CreateAbsenceDto;
+import com.decathlon.dec.absences.enumerations.AbsenceStatus;
 import com.decathlon.dec.absences.models.Absence;
 import com.decathlon.dec.conges.dto.CreateCongeDto;
 import com.decathlon.dec.conges.enumerations.CongeStatus;
@@ -159,101 +160,105 @@ public void testGetAbsenceById_shouldReturnAbsence()  throws Exception {
     absence.setEndDate(endDate);
     absence.setReason("reason");
     absence.setUser(testUser.getUser());
-    Absence savedAbsence  = congesRepository.save(conge);
+    absence.setStatus(AbsenceStatus.APPROVED);
+    Absence savedAbsence  = absenceRepository.save(absence);
  
 
-    long startDateTimestamp = savedConge.getStartDate().getTime();
-    long endDateTimestamp = savedConge.getEndDate().getTime();
+    long startDateTimestamp = savedAbsence.getStartDate().getTime();
+    long endDateTimestamp = savedAbsence.getEndDate().getTime();
     
     DateFormat expectedDateFormat = new SimpleDateFormat("yyyy-MM-dd");
     String expectedStartDate = expectedDateFormat.format(new Date(startDateTimestamp));
     String expectedEndDate = expectedDateFormat.format(new Date(endDateTimestamp));
     
-    mockMvc.perform(get("/conges/{id}", savedConge.getId())
+    mockMvc.perform(get("/absences/{id}", savedAbsence.getId())
         .with(user(testUser))
         .contentType("application/json"))
         .andExpect(status().isOk())
-        .andExpect(jsonPath("$.id").value(savedConge.getId()))
+        .andExpect(jsonPath("$.id").value(savedAbsence.getId()))
         .andExpect(jsonPath("$.startDate").value(expectedStartDate+ "T00:00:00.000+00:00"))
         .andExpect(jsonPath("$.endDate").value(expectedEndDate+ "T00:00:00.000+00:00"))
-        .andExpect(jsonPath("$.reason").value(savedConge.getReason()))
+        .andExpect(jsonPath("$.reason").value(savedAbsence.getReason()))
         .andReturn();
 }
 
-@Test //Test to edit conge (confirmed conge)
+@Test //Test to edit absence (confirmed absence)
 // confirm the status
-public void testEditConge() throws Exception {
-    Conge conge = new Conge();
+public void testEditAbsence() throws Exception {
+   
+  Absence absence = new Absence();
     String dateString = "2021-05-05";
     DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     Date startDate = dateFormat.parse(dateString);
-    conge.setStartDate(startDate);
+    absence.setStartDate(startDate);
 
     String dateeString = "2021-05-05";
     DateFormat dateeFormat = new SimpleDateFormat("yyyy-MM-dd");
     
     Date endDate = dateeFormat.parse(dateeString);
 
-    conge.setEndDate(endDate);
-    conge.setReason("reason");
-    conge.setUser(testUser.getUser());
-    conge.setStatus(CongeStatus.CONFIRMED);
-    Conge savedConge = congesRepository.save(conge);
+    absence.setEndDate(endDate);
+    absence.setReason("reason");
+    absence.setUser(testUser.getUser());
+    absence.setStatus(AbsenceStatus.APPROVED);
+    absenceRepository.save(absence);
  
 
-    long startDateTimestamp = savedConge.getStartDate().getTime();
-    long endDateTimestamp = savedConge.getEndDate().getTime();
+    long startDateTimestamp = absence.getStartDate().getTime();
+    long endDateTimestamp = absence.getEndDate().getTime();
     
     DateFormat expectedDateFormat = new SimpleDateFormat("yyyy-MM-dd");
     String expectedStartDate = expectedDateFormat.format(new Date(startDateTimestamp));
     String expectedEndDate = expectedDateFormat.format(new Date(endDateTimestamp));
+    //print the status in the terminal
+   // System.out.println(absence.getStatus());
 
-
-    
-    mockMvc.perform(patch("/conges/{id}", savedConge.getId())
+    //test if the absence is null
+  
+    mockMvc.perform(get("/absences/" + absence.getId())
         .with(user(testUser))
         .contentType("application/json"))
         .andExpect(status().isOk())
-        .andExpect(jsonPath("$.id").value(savedConge.getId()))
+        .andExpect(jsonPath("$.id").value(absence.getId()))
         .andExpect(jsonPath("$.startDate").value(expectedStartDate+ "T00:00:00.000+00:00"))
         .andExpect(jsonPath("$.endDate").value(expectedEndDate+ "T00:00:00.000+00:00"))
-        .andExpect(jsonPath("$.reason").value(savedConge.getReason()))
-        .andExpect(jsonPath("$.status").value(CongeStatus.CONFIRMED.toString()))
+        .andExpect(jsonPath("$.reason").value(absence.getReason()))
+        .andExpect(jsonPath("$.status").value(AbsenceStatus.APPROVED.toString()))
         .andReturn();
 }
 
-@Test //test delete a conge
-public void testDeleteConge() throws Exception {
-    Conge conge = new Conge();
+@Test //test delete a absence
+public void testDeleteAbsence() throws Exception {
+    Absence absence = new Absence();
     String dateString = "2021-05-05";
     DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     Date startDate = dateFormat.parse(dateString);
-    conge.setStartDate(startDate);
+    absence.setStartDate(startDate);
 
     String dateeString = "2021-05-05";
     DateFormat dateeFormat = new SimpleDateFormat("yyyy-MM-dd");
     
     Date endDate = dateeFormat.parse(dateeString);
 
-    conge.setEndDate(endDate);
-    conge.setReason("reason");
-    conge.setUser(testUser.getUser());
-    Conge savedConge = congesRepository.save(conge);
+    absence.setEndDate(endDate);
+    absence.setReason("reason");
+    absence.setUser(testUser.getUser());
+    Absence savedAbsence= absenceRepository.save(absence);
  
 
-    long startDateTimestamp = savedConge.getStartDate().getTime();
-    long endDateTimestamp = savedConge.getEndDate().getTime();
+    long startDateTimestamp = savedAbsence.getStartDate().getTime();
+    long endDateTimestamp = savedAbsence.getEndDate().getTime();
     
     DateFormat expectedDateFormat = new SimpleDateFormat("yyyy-MM-dd");
     String expectedStartDate = expectedDateFormat.format(new Date(startDateTimestamp));
     String expectedEndDate = expectedDateFormat.format(new Date(endDateTimestamp));
     
-    mockMvc.perform(delete("/conges/{id}", savedConge.getId())
+    mockMvc.perform(delete("/absences/{id}", savedAbsence.getId())
         .with(user(testUser)))
         
         .andReturn();
         // check if the conge is deleted
-        mockMvc.perform(get("/conges/" + savedConge.getId())
+        mockMvc.perform(get("/absences/" + savedAbsence.getId())
         .with(user(testUser)))
         .andExpect(status().isNotFound())
         .andReturn();

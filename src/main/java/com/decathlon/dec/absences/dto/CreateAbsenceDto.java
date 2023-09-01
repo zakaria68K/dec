@@ -14,6 +14,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @NoArgsConstructor
 @SuperBuilder
+
 public class CreateAbsenceDto {
     
     @NotNull(message = "La date de début est obligatoire")
