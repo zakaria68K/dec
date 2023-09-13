@@ -4,7 +4,7 @@ node {
     docker { image 'maven:3.8.5-openjdk-17-slim' }
   }
 
-  def dockerImageTag = "zakaria68K/dec-api:${env.BUILD_NUMBER}"
+  def dockerImageTag = "zakaria68k/dec-api:${env.BUILD_NUMBER}"
 
   try {
 
