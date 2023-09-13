@@ -13,7 +13,7 @@ node {
     stage('Clone repository') {
       git url: 'https://github.com/zakaria68K/dec.git',
         credentialsId: 'f5135b9b-099c-43d8-a434-da3acde77729',
-        branch: 'main'
+        branch: 'master'
     }
 
     stage('Run integration & unit tests') {
