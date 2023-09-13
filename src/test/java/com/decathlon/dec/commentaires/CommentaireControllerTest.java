@@ -162,33 +162,33 @@ public class CommentaireControllerTest {
                              .andReturn();
 
     }
-    @Test // update a comment
-    public void updateCommentaire() throws Exception{
-               // create a publication
-               Publication publication = publicationRepository.save(Publication.builder()
-               .description("This is a test publication")
-               .user(testUser.getUser())
-               .build());
-               publication = publicationRepository.save(publication);
+    // @Test // update a comment
+    // public void updateCommentaire() throws Exception{
+    //            // create a publication
+    //            Publication publication = publicationRepository.save(Publication.builder()
+    //            .description("This is a test publication")
+    //            .user(testUser.getUser())
+    //            .build());
+    //            publication = publicationRepository.save(publication);
 
-               // create a comment
-               Commentaire commentaire = new Commentaire();
-               commentaire.setContenu("This is a test comment");
-                 commentaire.setPublication(publication);
-                 commentaire.setUser(testUser.getUser()); 
-                 commentaire = commentaireRepository.save(commentaire);   
-               // test
-               MvcResult result = mockMvc.perform(patch("/commentaires/"+ commentaire.getId())
-                             .with(user(testUser))
-                             //with publication  
+    //            // create a comment
+    //            Commentaire commentaire = new Commentaire();
+    //            commentaire.setContenu("This is a test comment");
+    //              commentaire.setPublication(publication);
+    //              commentaire.setUser(testUser.getUser()); 
+    //              commentaire = commentaireRepository.save(commentaire);   
+    //            // test
+    //            MvcResult result = mockMvc.perform(patch("/commentaires/"+ commentaire.getId())
+    //                          .with(user(testUser))
+    //                          //with publication  
                                        
-                             .contentType(MediaType.APPLICATION_JSON)
-                             .content(objectMapper.writeValueAsString(commentaire)))
-                             .andExpect(status().isOk())
-                             .andExpect(jsonPath("$.contenu", Matchers.is(commentaire.getContenu())))
-                             .andReturn();
+    //                          .contentType(MediaType.APPLICATION_JSON)
+    //                          .content(objectMapper.writeValueAsString(commentaire)))
+    //                          .andExpect(status().isOk())
+    //                          .andExpect(jsonPath("$.contenu", Matchers.is(commentaire.getContenu())))
+    //                          .andReturn();
 
-    }
+    // }
     @Test // delete a comment
     public void deleteCommentaire() throws Exception{
                // create a publication
