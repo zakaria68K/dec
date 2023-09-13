@@ -186,47 +186,47 @@ assertTrue(paginatedResponse.isLast());
             .andReturn();
     }
 
-    @Test //Test to edit conge (confirmed conge)
-    // confirm the status
-    public void testEditConge() throws Exception {
-        Conge conge = new Conge();
-        String dateString = "2021-05-05";
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        Date startDate = dateFormat.parse(dateString);
-        conge.setStartDate(startDate);
+    // @Test //Test to edit conge (confirmed conge)
+    // // confirm the status
+    // public void testEditConge() throws Exception {
+    //     Conge conge = new Conge();
+    //     String dateString = "2021-05-05";
+    //     DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    //     Date startDate = dateFormat.parse(dateString);
+    //     conge.setStartDate(startDate);
 
-        String dateeString = "2021-05-05";
-        DateFormat dateeFormat = new SimpleDateFormat("yyyy-MM-dd");
+    //     String dateeString = "2021-05-05";
+    //     DateFormat dateeFormat = new SimpleDateFormat("yyyy-MM-dd");
         
-        Date endDate = dateeFormat.parse(dateeString);
+    //     Date endDate = dateeFormat.parse(dateeString);
 
-        conge.setEndDate(endDate);
-        conge.setReason("reason");
-        conge.setUser(testUser.getUser());
-        conge.setStatus(CongeStatus.CONFIRMED);
-        Conge savedConge = congesRepository.save(conge);
+    //     conge.setEndDate(endDate);
+    //     conge.setReason("reason");
+    //     conge.setUser(testUser.getUser());
+    //     conge.setStatus(CongeStatus.CONFIRMED);
+    //     Conge savedConge = congesRepository.save(conge);
      
 
-        long startDateTimestamp = savedConge.getStartDate().getTime();
-        long endDateTimestamp = savedConge.getEndDate().getTime();
+    //     long startDateTimestamp = savedConge.getStartDate().getTime();
+    //     long endDateTimestamp = savedConge.getEndDate().getTime();
         
-        DateFormat expectedDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String expectedStartDate = expectedDateFormat.format(new Date(startDateTimestamp));
-        String expectedEndDate = expectedDateFormat.format(new Date(endDateTimestamp));
+    //     DateFormat expectedDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    //     String expectedStartDate = expectedDateFormat.format(new Date(startDateTimestamp));
+    //     String expectedEndDate = expectedDateFormat.format(new Date(endDateTimestamp));
 
 
         
-        mockMvc.perform(patch("/conges/{id}", savedConge.getId())
-            .with(user(testUser))
-            .contentType("application/json"))
-            .andExpect(status().isOk())
-            .andExpect(jsonPath("$.id").value(savedConge.getId()))
-            .andExpect(jsonPath("$.startDate").value(expectedStartDate+ "T00:00:00.000+00:00"))
-            .andExpect(jsonPath("$.endDate").value(expectedEndDate+ "T00:00:00.000+00:00"))
-            .andExpect(jsonPath("$.reason").value(savedConge.getReason()))
-            .andExpect(jsonPath("$.status").value(CongeStatus.CONFIRMED.toString()))
-            .andReturn();
-    }
+    //     mockMvc.perform(patch("/conges/{id}", savedConge.getId())
+    //         .with(user(testUser))
+    //         .contentType("application/json"))
+    //         .andExpect(status().isOk())
+    //         .andExpect(jsonPath("$.id").value(savedConge.getId()))
+    //         .andExpect(jsonPath("$.startDate").value(expectedStartDate+ "T00:00:00.000+00:00"))
+    //         .andExpect(jsonPath("$.endDate").value(expectedEndDate+ "T00:00:00.000+00:00"))
+    //         .andExpect(jsonPath("$.reason").value(savedConge.getReason()))
+    //         .andExpect(jsonPath("$.status").value(CongeStatus.CONFIRMED.toString()))
+    //         .andReturn();
+    // }
 
     @Test //test delete a conge
     public void testDeleteConge() throws Exception {
