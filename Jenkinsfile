@@ -17,6 +17,7 @@ node {
     }
 
     stage('Run integration & unit tests') {
+      sh('chmod +x mvnw')
       withCredentials([
         string(credentialsId: 'dec-test-database-url', variable: 'TEST_DATABASE_URL'),
         string(credentialsId: 'dec-test-database-username', variable: 'TEST_DATABASE_USERNAME'),
