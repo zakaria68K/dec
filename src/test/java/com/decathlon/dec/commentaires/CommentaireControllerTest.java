@@ -148,9 +148,9 @@ public class CommentaireControllerTest {
                // create a comment
                Commentaire commentaire = new Commentaire();
                commentaire.setContenu("This is a test comment");
-                 commentaire.setPublication(publication);
-                 commentaire.setUser(testUser.getUser()); 
-                 commentaire = commentaireRepository.save(commentaire);   
+               commentaire.setPublication(publication);
+               commentaire.setUser(testUser.getUser()); 
+              commentaire = commentaireRepository.save(commentaire);   
                // test
                MvcResult result = mockMvc.perform(get("/commentaires/"+ publication.getId())
                              .with(user(testUser))
